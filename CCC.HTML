@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    #resultList {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #resultList li {
+      background-color: #f8f8f8;
+      padding: 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #resultList li:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Lista de Productos</h1>
+<input type="text" id="searchInput" placeholder="Escribe para buscar productos">
+<ul id="resultList"></ul>
+
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function() {
+  const searchValue = this.value.toUpperCase();
+
+  // Simula una llamada AJAX para obtener la lista de productos desde productos.json
+  fetch('productos.json')
+    .then(response => response.json())
+    .then(data => {
+      const productList = data.productos;
+
+      // Filtra la lista de productos basándose en la búsqueda
+      const filteredList = productList.filter(product => product.nombre.toUpperCase().includes(searchValue));
+
+      // Muestra los resultados en forma de lista
+      displayResultList(filteredList);
+    })
+    .catch(error => console.error('Error al obtener los productos:', error));
+});
+
+function displayResultList(results) {
+  const resultListElement = document.getElementById('resultList');
+  // Limpia la lista antes de agregar nuevos resultados
+  resultListElement.innerHTML = '';
+
+  // Agrega un elemento de lista por cada resultado
+  results.forEach(product => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${product.nombre} - IGV: ${product.igv ? 'Sí' : 'No'}`;
+    // Al hacer clic en el elemento de lista, rellena el input con el nombre del producto
+    listItem.addEventListener('click', function() {
+      document.getElementById('searchInput').value = product.nombre;
+    });
+    resultListElement.appendChild(listItem);
+  });
+}
+</script>
+
+</body>
+</html>

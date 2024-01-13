@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "AutoComplete SUNAT",
+  "version": "1.0",
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "webRequest"
+  ],
+  "action": {
+    "default_icon": {
+      "128": "icon_128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://e-menu.sunat.gob.pe/*",
+        "https://e-menu.sunat.gob.pe/cl-ti-itmenu/MenuInternet.htm?pestana=*&agrupacion=*",
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

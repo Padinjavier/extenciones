@@ -1,0 +1,29 @@
+{
+    "productos": [
+      {
+        "nombre": "ABAFIN 1.8 EC X 1 LT",
+        "igv": false
+      },
+      {
+        "nombre": "eeeee",
+        "igv": true
+      },
+      {
+        "nombre": "ABAFIN 1.8 EC X 1 ",
+        "igv": false
+      },
+      {
+        "nombre": "ABAFIN 1.8  X 1 LT",
+        "igv": false
+      },
+      {
+        "nombre": "ABAFIN 1.8 EC X 1 LT",
+        "igv": false
+      },
+      {
+        "nombre": "AEEE",
+        "igv": false
+      }
+    ]
+  }
+  

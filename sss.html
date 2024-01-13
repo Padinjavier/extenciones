@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dijitDialog dijitDialogIncomplete dijitIncomplete dijitDialogFocused dijitDialogIncompleteFocused dijitIncompleteFocused dijitFocused" role="dialog" aria-labelledby="dialogItem_title" id="dialogItem" widgetid="dialogItem" style="width: 500px; height: 600px; position: absolute; opacity: 1; left: 118px; top: 28px; z-index: 950;">
+        <div data-dojo-attach-point="titleBar" class="dijitDialogTitleBar">
+            <span data-dojo-attach-point="titleNode" class="dijitDialogTitle" id="dialogItem_title" role="heading" level="1">Nuevo Item</span>
+            <span data-dojo-attach-point="closeButtonNode" class="dijitDialogCloseIcon" data-dojo-attach-event="ondijitclick: onCancel" title="Cancelar" role="button" tabindex="0">
+                <span data-dojo-attach-point="closeText" class="closeText" title="Cancelar">x</span>
+            </span>
+        </div>
+        <div data-dojo-attach-point="containerNode" class="dijitDialogPaneContent dijitDialogSingleChild">
+            <form data-dojo-attach-point="containerNode" data-dojo-attach-event="onreset:_onReset,onsubmit:_onSubmit" id="item.form" class="tundra" widgetid="item.form" style="width: 500px; height: 539.1px;">
+    
+    
+    
+    
+            <input id="item.action" name="action" type="hidden" value="adicionarItem">
+            <input id="item.idItem" name="idItem" type="hidden" value="0">
+            <input id="item.igvPorcentaje" name="igvPorcentaje" type="hidden" value="0.18">
+            <input id="item.valOpcTipoBenef" name="valOpcTipoBenef" type="hidden" value="">
+            <input id="item.valOpcTipoBonif" name="valOpcTipoBonif" type="hidden" value="">
+            <input id="item.valOpcTipoCTItem" name="valOpcTipoCTItem" type="hidden" value="0">
+            <input id="item.valOpcTipoBS" name="valOpcTipoBS" type="hidden" value="">		
+            <input id="item.valOpcExportacion" name="valOpcExportacion" type="hidden" value="">		
+            <input id="item.valOpcNodomic" name="valOpcNodomic" type="hidden" value="">
+            <input id="item.valOpcPagoAnticipado" name="valOpcPagoAnticipado" type="hidden" value="0">
+            <input id="item.boletaAnticipoFechaEmisionAux" name="boletaAnticipoFechaEmisionAux" type="hidden" value="">
+            <!-- Inicio PAS20201U210100285 - Giancarlo Nepo L�pez -->
+            <input id="item.montoRedondeoAux" name="montoRedondeoAux" type="hidden" value="0">
+            <!-- Fin PAS20201U210100285 - Giancarlo Nepo L�pez -->
+            <!-- INI: PAS20191U210100075 -->
+            <input id="item.tasaBolsaGlobal" name="tasaBolsaGlobal" type="hidden" value="0">
+            <input id="item.PeriodoBolsaGlobal" name="PeriodoBolsaGlobal" type="hidden" value="">
+            <!-- FIN: PAS20191U210100075 -->
+            <table width="100%">
+              <tbody><tr>
+                <td width="33%">
+                    <div id="item.divPagoAnticipado.show" style="display: none;">
+                    <table>
+                        <tbody><tr>
+                            <td><div class="dijit dijitReset dijitInline dijitCheckBox" role="presentation" widgetid="item.subTipoPagoAnticipado0"><input name="pagoAnticipado" type="checkbox" role="checkbox" aria-checked="false" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" value="on" tabindex="0" id="item.subTipoPagoAnticipado0" style="user-select: none;"></div>&nbsp;</td>
+                            <td>Anticipo</td>	
+                            <td>&nbsp;</td>			
+                      </tr>
+                    <tr>
+                     </tr></tbody></table>
+                    </div>	
+                </td>
+                <td width="1%">&nbsp;</td>
+                <td width="66%" align="right">
+                </td>
+              </tr>		
+              <tr>
+                <td width="33%">
+                    <table>
+                        <tbody><tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>				
+                            <td><div class="dijit dijitReset dijitInline dijitRadio dijitRadioFocused dijitFocused" role="presentation" widgetid="item.subTipoTI01"><input name="tipoItem" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoTI01" value="TI01" style="user-select: none;"></div></td>
+                            <td>Bien</td>
+                            <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subTipoTI02"><input name="tipoItem" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoTI02" value="TI02" style="user-select: none;" aria-disabled="false"></div></td>
+                            <td>Servicio</td>
+                        </tr>
+                     </tbody></table>
+                </td>
+                <td width="1%">&nbsp;</td>
+                <td width="66%" align="right">
+                    <div id="item.divOperacionGratuita.show" style="display: none;">
+                    <table>
+                        <tbody><tr>
+                            <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subTipoBO00"><input name="tipoBonificacion" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoBO00" value="BO00" style="user-select: none;"></div>&nbsp;</td>
+                            <td>Operación Gratuita</td>	
+                            <td>&nbsp;</td>			
+                      </tr>
+                     </tbody></table>
+                    </div>	
+                </td>
+              </tr>
+              <tr>
+                <td width="33%">
+                <div id="item.divOtrosCargosTributos.show" style="display: none;">
+                    <table>
+                            <tbody><tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>				
+                                <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subCT01"><input name="tipoCTItem" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subCT01" value="1" style="user-select: none;"></div></td>
+                                <td>Cargo</td>
+                                <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subCT02"><input name="tipoCTItem" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subCT02" value="2" style="user-select: none;"></div></td>
+                                <td>Tributo</td>
+                            </tr>
+                     </tbody></table>
+                </div>
+                </td>
+                <td width="1%">&nbsp;</td>
+                <td width="66%">
+    
+                </td>
+              </tr>		  
+            </tbody></table>
+             <div id="item.divFEPagoAnticipado.show" style="display: none; border: 0px;"> 
+                <table width="100%">
+                <tbody><tr>
+                    <td colspan="4"><b>Información del anticipo</b></td>
+                </tr>			  
+                <tr>
+                    <td width="23%">Boleta de Venta: Serie - Nro.</td>
+                    <td width="1%">:</td>
+                    <td width="76%">
+                        <!-- regExp="[EB-f0-9]+" -->
+                        <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_item.boletaAnticipoSerie" role="presentation" widgetid="item.boletaAnticipoSerie" style="font-size: 13px; width: 50px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="boletaAnticipoSerie" type="text" tabindex="0" id="item.boletaAnticipoSerie" aria-required="true" maxlength="4" value="" aria-invalid="true"></div></div>
+                        <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox" id="widget_item.boletaAnticipoNumero" role="presentation" widgetid="item.boletaAnticipoNumero" style="font-size: 13px; width: 150px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="boletaAnticipoNumero" type="text" tabindex="0" id="item.boletaAnticipoNumero" maxlength="20" value="" aria-invalid="false"></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha emisión</td>
+                    <td>:</td>
+                    <td>
+                        
+                        <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitDateTextBox dijitValidationTextBox" id="widget_item.boletaAnticipoFechaEmision" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.boletaAnticipoFechaEmision" style="font-size: 13px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" tabindex="0" id="item.boletaAnticipoFechaEmision" maxlength="10" aria-required="true" value="" aria-invalid="false"><input type="hidden" name="boletaAnticipoFechaEmision" value="1970-01-01"></div></div>
+                    </td>
+                </tr>	
+                <tr>
+                    <td>Importe Total Boleta de Venta</td>
+                    <td>:</td>
+                    <td>
+                        <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox dijitTextBoxIncomplete dijitCurrencyTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_item.boletaAnticipoMonto" role="presentation" widgetid="item.boletaAnticipoMonto" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="0" id="item.boletaAnticipoMonto" aria-required="true" maxlength="12" value="" aria-invalid="true"><input type="hidden" name="boletaAnticipoMonto" value=""></div></div>
+                    </td>
+                </tr>	  
+                </tbody></table>
+            </div>
+                
+            <div id="item.divFENoPagoAnticipado.show" style="border: 0px;"> 	
+            <table width="100%">
+              <tbody><tr>
+                <td width="23%">Cantidad</td>
+                <td width="1%">:</td>
+                <td width="76%">
+                    <!-- Inicio PAS20201U210100285 -->
+                    <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox" id="widget_item.cantidad" role="presentation" widgetid="item.cantidad" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="cantidad" type="text" tabindex="0" id="item.cantidad" maxlength="19" value="1" aria-invalid="false" aria-disabled="false"></div></div>
+                    <!-- Fin PAS20201U210100285 -->
+                </td>
+              </tr>		
+              <tr>
+                <td>Unidad de Medida</td>
+                <td>:</td>
+                <td>
+                    <div id="item.unidadMedida.div" style="display:block">
+                    <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_item.unidadMedida" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.unidadMedida" style="font-size: 13px; width: 250px;" aria-disabled="false"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="item.unidadMedida" value="" aria-invalid="false" aria-disabled="false"><input type="hidden" name="unidadMedida" value="NIU"></div></div>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Código</td>
+                <td>:</td>
+                <td><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox" id="widget_item.codigoItem" role="presentation" widgetid="item.codigoItem" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="codigoItem" type="text" tabindex="0" id="item.codigoItem" maxlength="30" value="" aria-invalid="false"></div></div></td>
+              </tr>
+            </tbody></table>
+            </div>
+            <table width="100%">
+              <tbody><tr>
+                <td valign="top" width="23%">Descripción</td>
+                <td valign="top" width="1%">:</td>
+                <td width="76%"><textarea name="descripcion" data-dojo-attach-point="focusNode,containerNode,textbox" autocomplete="off" class="dijitTextBox dijitTextArea" tabindex="0" id="item.descripcion" maxlength="250" widgetid="item.descripcion" value="" style="width: 292px; height: 50px; font-size: 13px;"></textarea></td>
+              </tr>
+            </tbody></table>
+            <table width="100%">
+              <tbody><tr>
+                <td width="23%">&nbsp;</td>
+                <td width="1%">&nbsp;</td>
+                <td width="76%">&nbsp;</td>
+              </tr>
+            </tbody></table>
+            
+            <!-- INI: PAS20191U210100075 jsantivanez -->
+            <div id="item.ICBPER1.show" style=""> 
+                <table width="100%">
+                  <tbody><tr>
+                    <td id="" width="23%">Impuesto Bolsas Plasticas</td>
+                    <td width="1%">:</td>
+                    <td colspan="2" width="76%">
+                            <table border="0">
+                                <tbody><tr>
+                                    <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="check.impuestoBolsasPlastica00"><input name="impuestoBolsasPlastica" type="radio" role="radio" aria-checked="false" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="check.impuestoBolsasPlastica00" value="IBP00" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                    <td>SI</td>				
+                                    <td><div class="dijit dijitReset dijitInline dijitRadio dijitRadioChecked dijitChecked" role="presentation" widgetid="check.impuestoBolsasPlastica01"><input name="impuestoBolsasPlastica" type="radio" role="radio" aria-checked="checked" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="check.impuestoBolsasPlastica01" value="IBP01" checked="checked" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                    <td>NO</td>							
+                                </tr>
+                             </tbody></table>
+                    </td>			
+                  </tr>
+                 </tbody></table>	
+            </div>		 
+            <!-- FIN: PAS20191U210100075  -->
+            
+            <table width="100%">
+              <tbody><tr>
+                <td id="rotuloValorUnitario" width="23%">Valor Unitario </td>
+                <td width="1%">:</td>
+                <td width="76%"><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox" id="widget_item.precioUnitario" role="presentation" widgetid="item.precioUnitario" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="0" id="item.precioUnitario" aria-required="true" maxlength="22" value="" aria-invalid="false"><input type="hidden" name="precioUnitario" value="0"></div></div></td>
+              </tr>
+            </tbody></table>
+            <div id="item.divDescuentos.show" style=""> 
+            <table width="100%">
+              <tbody><tr>
+                <td width="23%">Descuento</td>
+                <td width="1%">:</td>
+                <td width="76%"><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox dijitTextBoxDisabled dijitCurrencyTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.precioDescuento" role="presentation" widgetid="item.precioDescuento" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="-1" id="item.precioDescuento" aria-required="true" maxlength="8" value="" aria-invalid="false" disabled="" aria-disabled="true"><input type="hidden" name="precioDescuento" value="0" disabled=""></div></div></td>
+              </tr>
+            </tbody></table>
+            </div>
+            <div id="item.divISC.show" style="display:block">
+                 <table width="100%">
+                  <tbody><tr>
+                    <td width="23%">ISC</td>
+                    <td width="1%">:</td>
+                    <td width="76%"><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox dijitTextBoxDisabled dijitComboBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.sistemaIsc" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.sistemaIsc" style="font-size: 13px; width: 250px;" aria-disabled="true"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="-1" id="item.sistemaIsc" value="" aria-invalid="false" disabled="" aria-disabled="true"><input type="hidden" name="sistemaIsc" value="0" disabled=""></div></div></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <table border="0">
+                              <tbody><tr>
+                                <td><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitSpinner dijitNumberTextBox dijitValidationTextBox dijitTextBoxDisabled dijitSpinnerDisabled dijitNumberTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.iscPorcentaje" role="presentation" widgetid="item.iscPorcentaje" style="font-size: 13px; width: 82px;"><div class="dijitReset dijitButtonNode dijitSpinnerButtonContainer"><input class="dijitReset dijitInputField dijitSpinnerButtonInner" type="text" tabindex="-1" readonly="readonly" role="presentation"><div class="dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitUpArrowButton" data-dojo-attach-point="upArrowNode"><div class="dijitArrowButtonInner"><input class="dijitReset dijitInputField" value="▲ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div></div><div class="dijitReset dijitLeft dijitButtonNode dijitArrowButton dijitDownArrowButton" data-dojo-attach-point="downArrowNode"><div class="dijitArrowButtonInner"><input class="dijitReset dijitInputField" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div></div></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" type="text" data-dojo-attach-event="onkeydown:_onKeyDown" role="spinbutton" autocomplete="off" tabindex="-1" id="item.iscPorcentaje" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" value="0" aria-invalid="false" disabled="" aria-disabled="true"><input type="hidden" name="iscPorcentaje" value="0" disabled=""></div></div></td>
+                                <td>%</td>
+                                <td><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox dijitTextBoxDisabled dijitCurrencyTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.iscMonto" role="presentation" widgetid="item.iscMonto" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="-1" id="item.iscMonto" disabled="" aria-disabled="true" maxlength="8" value="" aria-invalid="false"><input type="hidden" name="iscMonto" disabled="" value="0"></div></div></td>
+                              </tr>
+                        </tbody></table>
+                    </td>
+                  </tr>
+                </tbody></table>
+            </div>
+             
+            <div id="item.divTipoBeneficio.show" style=""> 
+              <table width="100%">
+                  <tbody><tr>
+                    <td id="item.labelIgvPorcentaje" width="23%">IGV</td>
+                    <td width="1%">&nbsp;</td>
+                    <td colspan="2" width="76%">
+                    <!-- INICIO: IGV10-JRGS  -->
+                        <table border="0">
+                            <tbody><tr>
+                                <td><div class="dijit dijitReset dijitInline dijitRadio dijitRadioChecked dijitChecked" role="presentation" widgetid="item.subTipoIgv00"><input name="tipoIGV" type="radio" role="radio" aria-checked="checked" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoIgv00" value="IGV00" checked="checked" style="user-select: none;"></div>&nbsp;</td>
+                                <td>18 %</td>
+                                <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subTipoIgv01"><input name="tipoIGV" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoIgv01" value="IGV01" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                <td>10 %</td>							
+                            </tr>
+                        </tbody></table>
+                        <!-- FIN: IGV10-JRGS  -->
+                        <table border="0">
+                            <tbody><tr>
+                                <td><div class="dijit dijitReset dijitInline dijitRadio dijitRadioChecked dijitChecked" role="presentation" widgetid="item.subTipoTB00"><input name="tipoBeneficio" type="radio" role="radio" aria-checked="checked" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoTB00" value="TB00" checked="checked" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                <td>Gravado</td>				
+                                <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subTipoTB01"><input name="tipoBeneficio" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoTB01" value="TB01" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                <td>Exonerado</td>
+                                <td><div class="dijit dijitReset dijitInline dijitRadio" role="presentation" widgetid="item.subTipoTB02"><input name="tipoBeneficio" type="radio" role="radio" aria-checked="" class="dijitReset dijitCheckBoxInput" data-dojo-attach-point="focusNode" data-dojo-attach-event="ondijitclick:_onClick" tabindex="0" id="item.subTipoTB02" value="TB02" style="user-select: none;" aria-disabled="false"></div>&nbsp;</td>
+                                <td>Inafecto</td>
+                            </tr>
+                         </tbody></table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    
+                    <td>
+                    <!-- <input id="item.precioConIGV" name="precioConIGV" dojoType="dijit.form.CurrencyTextBox" disabled="true" onchange="boleta.updateItemAmount()" maxlength="13"  type="text" style="font-size:13px;"/></td> --> <!-- PAS20211U210100007 -->
+                    <!-- Inicio PAS20211U210100007 -->
+                    <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox dijitTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.precioConIGV" role="presentation" widgetid="item.precioConIGV" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="precioConIGV" type="text" tabindex="-1" id="item.precioConIGV" disabled="" aria-disabled="true" maxlength="13" value="" aria-invalid="false"></div></div>
+                    <!-- Fin PAS20211U210100007 -->
+                  </td></tr>	
+              </tbody></table>
+              </div>
+               
+              <div id="item.divOperacionGratuitaCombo.show" style="display:none"> 
+                <table width="100%">
+                  <tbody><tr>
+                    <td width="23%">Operación Gratuita</td>
+                    <td width="1%">:</td>
+                    <td width="76%">
+                        <div id="item.divOperacionGratuitaCombo1.show" style="display:block"> 
+                            <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_item.operacionGratuita1" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.operacionGratuita1" style="font-size: 13px; width: 250px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="item.operacionGratuita1" data-placeholder="-SELECCIONE OPCION-" value="" aria-invalid="false"><input type="hidden" name="operacionGratuita1" value="00"></div></div>
+                        </div>
+                        <div id="item.divOperacionGratuitaCombo2.show" style="display:none"> 
+                            <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_item.operacionGratuita2" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.operacionGratuita2" style="font-size: 13px; width: 250px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="item.operacionGratuita2" value="" aria-invalid="false"><input type="hidden" name="operacionGratuita2" value="00"></div></div>
+                        </div>
+                        <div id="item.divOperacionGratuitaCombo3.show" style="display:none"> 
+                            <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_item.operacionGratuita3" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.operacionGratuita3" style="font-size: 13px; width: 250px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="item.operacionGratuita3" value="" aria-invalid="false"><input type="hidden" name="operacionGratuita3" value="00"></div></div>
+                        </div>
+                        <div id="item.divOperacionGratuitaCombo4.show" style="display:none"> 
+                            <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_item.operacionGratuita4" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.operacionGratuita4" style="font-size: 13px; width: 250px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="item.operacionGratuita4" value="" aria-invalid="false"><input type="hidden" name="operacionGratuita4" value="00"></div></div>
+                        </div>
+                    </td>
+                  </tr>		
+              </tbody></table>
+            </div>
+            <!-- INI: PAS20191U210100075 jsantivanez -->
+            <div id="item.ICBPER2.show" style=""> 
+                <table width="100%">
+                  <tbody><tr>
+                  
+                    <td width="23%">ICBPER</td><!-- style="width:23px;" -->
+                    <td width="1%">:</td><!-- style="width:1px;" -->
+                    <td width="76%"><!-- style="width:76px;" -->
+                        <table>
+                            <tbody><tr>
+                                <td>
+                                    <!-- <select id="item.impuestoBolsa" name="impuestoBolsa" dojoType="dijit.form.FilteringSelect" autocomplete="true" style="font-size:13px; width:250px" > -->
+                                    <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox dijitTextBoxDisabled dijitComboBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.periodoBolsa" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="item.periodoBolsa" style="font-size: 13px; width: 150px;" aria-disabled="true"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="-1" id="item.periodoBolsa" value="" aria-invalid="false" disabled="" aria-disabled="true"><input type="hidden" name="periodoBolsa" value="" disabled=""></div></div><!-- width="46%" -->
+                                </td>
+                                <td><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox dijitTextBoxDisabled dijitCurrencyTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.tasaBolsa" role="presentation" widgetid="item.tasaBolsa" style="font-size: 13px; width: 150px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="-1" id="item.tasaBolsa" maxlength="13" disabled="" aria-disabled="true" value="" aria-invalid="false"><input type="hidden" name="tasaBolsa" disabled="" value=""></div></div></td>
+                            </tr>
+                        </tbody></table>
+                    </td>			
+                  </tr>
+                </tbody></table>
+                <table width="100%">	
+                     <tbody><tr>
+                        <td id="" width="23%">Impuesto ICBPER</td>
+                        <td width="1%">:</td>
+                        <td width="76%"><div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitCurrencyTextBox dijitValidationTextBox dijitTextBoxDisabled dijitCurrencyTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.impuestoICBPER" role="presentation" widgetid="item.impuestoICBPER" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabindex="-1" id="item.impuestoICBPER" maxlength="13" disabled="" aria-disabled="true" value="" aria-invalid="false"><input type="hidden" name="impuestoICBPER" disabled="" value="0"></div></div></td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <!-- FIN: PAS20191U210100075 --> 	
+            <table width="100%">	
+                 <tbody><tr>
+                    <td id="rotuloTotalItem" width="23%">Importe Total del Item </td>
+                    <td width="1%">:</td>
+                    
+                    <td width="76%">
+                    <!-- <input id="item.importeVenta" name="importeVenta" dojoType="dijit.form.CurrencyTextBox" maxlength="13"  disabled="true" type="text" style="font-size:13px;"/></td> --> <!-- PAS20211U210100007 -->
+                    <!-- Inicio PAS20211U210100007 -->
+                    <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitValidationTextBox dijitTextBoxDisabled dijitValidationTextBoxDisabled dijitDisabled" id="widget_item.importeVenta" role="presentation" widgetid="item.importeVenta" style="font-size: 13px;"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="importeVenta" type="text" tabindex="-1" id="item.importeVenta" maxlength="13" disabled="" aria-disabled="true" value="" aria-invalid="false"></div></div>
+                    <!-- Fin PAS20211U210100007 -->
+                </td></tr>
+            </tbody></table>
+            <table width="100%">
+              <tbody><tr>
+                <td width="47%" align="right"><span class="dijit dijitReset dijitInline dijitButton" role="presentation" widgetid="item.botonAceptar"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:__onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="item.botonAceptar_label" tabindex="0" id="item.botonAceptar" style="user-select: none;" aria-disabled="false"><span class="dijitReset dijitInline dijitIcon icon-by-ok" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="item.botonAceptar_label" data-dojo-attach-point="containerNode">Aceptar</span></span></span><input type="button" value="" class="dijitOffScreen" data-dojo-attach-event="onclick:_onClick" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span></td>
+                <td width="2%">&nbsp;</td>
+                <td width="51%"><span class="dijit dijitReset dijitInline dijitButton" role="presentation" widgetid="item.botonCancelar"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:__onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="item.botonCancelar_label" tabindex="0" id="item.botonCancelar" style="user-select: none;"><span class="dijitReset dijitInline dijitIcon icon-by-close" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="item.botonCancelar_label" data-dojo-attach-point="containerNode">Cancelar</span></span></span><input type="button" value="" class="dijitOffScreen" data-dojo-attach-event="onclick:_onClick" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span></td>
+              </tr>
+            </tbody></table>
+    </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selector de Tiendas</title>
+  <style>
+    body {
+      width: 250px;
+      height: 800px;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .button-row {
+      display: flex;
+      padding-bottom: 10px;
+      gap: 10px;
+    }
+
+    .button-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #autocompletarsoluciones {
+      background-color: #329cda;
+
+    }
+
+    #autocompletarvillafuerte {
+      background-color: #24b929;
+
+    }
+
+    #factura {
+      background-color: #f36100;
+
+    }
+
+    #boleta {
+      background-color: #a59400;
+
+    }
+    #cargardatos{
+      margin: 10px;
+      width: 100px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #searchInput,
+    #precio,
+    #cantidad {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    #resultList {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #resultList li {
+      background-color: #f8f8f8;
+      padding: 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #resultList li:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+
+<body>
+  <p>ELIGE UNA TIENDA</p>
+
+  <div class="button-row">
+    <button id="autocompletarsoluciones">SOLUCIONES</button>
+    <button id="autocompletarvillafuerte">VILLAFUERTE</button>
+  </div>
+
+  <div class="button-row">
+    <button id="factura">FACTURA</button>
+    <button id="boleta">BOLETA</button>
+  </div>
+
+  <div>
+    <h1>Lista de Productos</h1>
+    <button id="cargardatos">Enviar</button>
+    <div>
+      <input type="number" name="precio" id="cantidad" placeholder="cantidad">
+      <input type="number" name="" id="precio" placeholder="precio">
+      <input type="text" id="searchInput" placeholder="Escribe para buscar productos">
+    </div>
+    <ul id="resultList"></ul>
+  </div>
+
+
+  <button id="executeButton">Ejecutar en Consola</button>
+</body>
+<script type="module" src="./popup.js"></script>
+<script type="module" src="./content.js"></script>
+
+</html>
