@@ -36,45 +36,39 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 
-  // if (request.action === "enviarDatos") {
-    
-    
-  //   document.addEventListener('DOMContentLoaded', function() {
-  //     // Tu código aquí
-  //     var servicio = document.querySelector('[data-dojo-attach-point="focusNode"]');
-  //     if (servicio) {
-  //       servicio.click();
-  //     } else {
-  //       console.error('No se encontró el elemento con el atributo data-dojo-attach-point="focusNode"');
-  //     }
-  //   });
-    
+
+  // En content.js de tu extensión
+  if (request.action === "enviarDatos") {
+    // var servicio = document.getElementById('item.descripcion');
+    //     if (servicio) {
+    //       servicio.value=request.data.Producto;
+    //       console.log(request.data.Producto);
+    //     } else {
+    //       console.error('No se encontró el elemento con el atributo data-dojo-attach-point="focusNode"');
+    //     }
 
 
-  // }
+    console.log("¡Hola desde content.js en la página de SUNAT!");
 
-// En content.js de tu extensión
-if (request.action === "enviarDatos") {
-  // var servicio = document.getElementById('item.descripcion');
-  //     if (servicio) {
-  //       servicio.value=request.data.Producto;
-  //       console.log(request.data.Producto);
-  //     } else {
-  //       console.error('No se encontró el elemento con el atributo data-dojo-attach-point="focusNode"');
-  //     }
-  
-
-console.log("¡Hola desde content.js en la página de SUNAT!");
-
-}
+  }
 
 
-
-
-
-
-
-
+  if (request.action === "prueba") {
+    ejecutarCodigoDojo();
+  }
 
 
 });
+
+// content.js
+
+function ejecutarCodigoDojo() {
+  // Verificar si Dojo está definido en el contexto global
+  if (typeof dijit !== 'undefined') {
+    // Obtener el elemento por su clase y establecer valores
+    dijit.byId("item.cantidad").set("value", 123);
+    dijit.byId("item.descripcion").set("value", "34");
+  } else {
+    console.error('Dojo no está definido en el contexto global. Asegúrate de que Dojo esté cargado en la página.');
+  }
+}

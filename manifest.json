@@ -21,7 +21,6 @@
     {
       "matches": [
         "https://e-menu.sunat.gob.pe/*",
-        "https://e-menu.sunat.gob.pe/cl-ti-itmenu/MenuInternet.htm?pestana=*&agrupacion=*",
         "<all_urls>"
       ],
       "js": [
