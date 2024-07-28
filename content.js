@@ -58,7 +58,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 
     // Confirmación de copia
-    console.log("Detalles de Venta copiados:", detallesVenta);
+    console.log("Detalles de Venta copiadossss:", detallesVenta);
+    this.detallesVenta = detallesVenta;
   }
 
   function pegarDatos() {
@@ -68,10 +69,21 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       console.log("Editando elemento:", elemento);
       elemento.type = "text";
 
-      // Pegar los datos en consola
-      console.log("Detalles de Venta pegados:", detallesVenta);
+      console.log("Número de detalles de venta:", this.detallesVenta.length);
+      // Seleccionar y hacer clic en el botón
+      const botonDetalleVenta = document.querySelector('.btn.btn-block.btn-success.btn-sm.detalleVenta');
+      if (botonDetalleVenta) {
+        // Hacer 252 clics en el botón
+        for (let i = 0; i < (this.detallesVenta.length - 1); i++) {
+          botonDetalleVenta.click();
+        }
+      } else {
+        console.log("Botón 'Agregar más producto' no encontrado");
+      }
+
     } else {
       console.log("Elemento con id 'id' no encontrado");
+      console.log("Detalles de Venta pegadoaaa:", this.detallesVenta);
     }
   }
 
@@ -89,13 +101,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     const elemento = document.querySelector('#id');
 
     if (elemento) {
-        console.log("editando");
-        console.log(elemento);
-        elemento.type = "text";
+      console.log("editando");
+      console.log(elemento);
+      elemento.type = "text";
     } else {
-        console.log("Elemento con id 'id' no encontrado");
+      console.log("Elemento con id 'id' no encontrado");
     }
-}
+  }
 
 });
 
