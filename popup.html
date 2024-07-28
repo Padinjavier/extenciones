@@ -10,7 +10,7 @@
       width: 250px;
       height: 800px;
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
+      background-color: #dbdbdb;
       text-align: center;
       margin: 0;
       padding: 20px;
@@ -70,7 +70,8 @@
       background-color: #a59400;
 
     }
-    #cargardatos{
+
+    #cargardatos {
       margin: 10px;
       width: 100px;
     }
@@ -123,18 +124,24 @@
     <button id="factura">FACTURA</button>
     <button id="boleta">BOLETA</button>
   </div>
-
-  <div>
-    <h1>Lista de Productos</h1>
-    <button id="cargardatos">Enviar</button>
-    <div>
-      <input type="number" name="precio" id="cantidad" placeholder="cantidad">
-      <input type="number" name="" id="precio" placeholder="precio">
-      <input type="text" id="searchInput" placeholder="Escribe para buscar productos">
-    </div>
-    <ul id="resultList"></ul>
+  <div class="button-row">
+    <button id="copiar">COPIAR</button>
+    <button id="pegar">PEGAR</button>
+  </div>
+  <div class="button-row">
+    <button id="editar">EDITAR</button>
+    <button id="...">....</button>
   </div>
 
+  <!-- Botón de imprimir -->
+  <button id="imprimir">Imprimir</button>
+
+  <div id="vistaboleta" style="background-color: white;">
+
+
+  </div>
+
+  <button id="imprimrtikrt">imprimrtikrt</button>
 
   <button id="executeButton">Ejecutar en Consola</button>
   <button id="prueba">prueba</button>
