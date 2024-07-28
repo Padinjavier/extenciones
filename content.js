@@ -84,6 +84,19 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.action === "pegar") {
     pegarDatos();
   }
+
+  if (request.action === "editar") {
+    const elemento = document.querySelector('#id');
+
+    if (elemento) {
+        console.log("editando");
+        console.log(elemento);
+        elemento.type = "text";
+    } else {
+        console.log("Elemento con id 'id' no encontrado");
+    }
+}
+
 });
 
 
