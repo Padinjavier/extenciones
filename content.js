@@ -37,38 +37,54 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 
-  // En content.js de tu extensión
-  if (request.action === "enviarDatos") {
-    // var servicio = document.getElementById('item.descripcion');
-    //     if (servicio) {
-    //       servicio.value=request.data.Producto;
-    //       console.log(request.data.Producto);
-    //     } else {
-    //       console.error('No se encontró el elemento con el atributo data-dojo-attach-point="focusNode"');
-    //     }
+  // Variable global para almacenar detalles de venta
+  let detallesVenta = [];
 
+  function copiarDatos() {
+    // Capturar detalles de venta
+    const tbody = document.getElementById('tblDetalleVenta');
+    const filas = tbody.getElementsByClassName('detailsaletr');
+    detallesVenta = []; // Reiniciar el arreglo para nuevos datos
 
-    console.log("¡Hola desde content.js en la página de SUNAT!");
+    for (let i = 0; i < filas.length; i++) {
+      const celdas = filas[i].getElementsByTagName('td');
+      const filaDatos = {
+        descripcion: celdas[1].innerText.trim(),
+        cantidad: parseFloat(celdas[2].innerText.trim()),
+        precioUnitario: parseFloat(celdas[3].querySelectorAll('label')[1].innerText.trim()),
+        precioTotal: parseFloat(celdas[4].querySelectorAll('label')[1].innerText.trim())
+      };
+      detallesVenta.push(filaDatos);
+    }
 
+    // Confirmación de copia
+    console.log("Detalles de Venta copiados:", detallesVenta);
   }
 
+  function pegarDatos() {
+    const elemento = document.querySelector('#id');
 
-  if (request.action === "prueba") {
-    ejecutarCodigoDojo();
+    if (elemento) {
+      console.log("Editando elemento:", elemento);
+      elemento.type = "text";
+
+      // Pegar los datos en consola
+      console.log("Detalles de Venta pegados:", detallesVenta);
+    } else {
+      console.log("Elemento con id 'id' no encontrado");
+    }
   }
 
+  // Simulación de la llamada a la función copiarDatos
+  if (request.action === "copiar") {
+    copiarDatos();
+  }
 
+  // Simulación de la llamada a la función pegarDatos
+  if (request.action === "pegar") {
+    pegarDatos();
+  }
 });
 
-// content.js
 
-function ejecutarCodigoDojo() {
-  // Verificar si Dojo está definido en el contexto global
-  if (typeof dijit !== 'undefined') {
-    // Obtener el elemento por su clase y establecer valores
-    dijit.byId("item.cantidad").set("value", 123);
-    dijit.byId("item.descripcion").set("value", "34");
-  } else {
-    console.error('Dojo no está definido en el contexto global. Asegúrate de que Dojo esté cargado en la página.');
-  }
-}
+
